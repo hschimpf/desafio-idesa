@@ -25,3 +25,7 @@
 
     // DAT_*
     define('DAT_COUNTRY_PK',    APIUtils::makeFK('country_id'));
+
+    // AUC_*
+    define('AUC_AUCTION_PK',    APIUtils::makeFK('auction_id'));
+    define('AUC_BATCH_PK',      APIUtils::makeFK('batch_auction', 'batch_id'));
