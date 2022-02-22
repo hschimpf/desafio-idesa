@@ -1,0 +1,15 @@
+[submodule "html/console"]
+	path = html/console
+	url = https://github.com/hschimpf/webservice-console.git
+[submodule "inc/db-class"]
+	path = inc/db-class
+	url = https://github.com/hds-solutions/db-class.git
+[submodule "inc/oo-rest-api"]
+	path = inc/oo-rest-api
+	url = https://github.com/hds-solutions/oo-rest-api.git
+[submodule "inc/php-curl-class"]
+	path = inc/php-curl-class
+	url = https://github.com/hds-solutions/php-curl-class.git
+[submodule "inc/security-layer"]
+	path = inc/security-layer
+	url = https://github.com/hds-solutions/security-layer.git
