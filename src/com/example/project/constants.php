@@ -20,5 +20,8 @@
     // ADM_*
     define('ADM_USER_PK',       APIUtils::makeFK('user_id'));
 
+    // SYS_*
+    define('SYS_CLIENT_PK',     APIUtils::makeFK('client_id'));
+
     // DAT_*
     define('DAT_COUNTRY_PK',    APIUtils::makeFK('country_id'));
