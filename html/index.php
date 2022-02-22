@@ -31,6 +31,7 @@
 
     // cargamos los API class
     require_once 'src/com/example/project/webservice/api/v1_0/WebserviceAPI.class.php';
+    require_once 'src/com/example/project/webservice/api/v2_0/WebserviceAPI.class.php';
 
     // cargamos el Session handler
     require_once 'src/com/example/project/webservice/session/WebserviceSession.class.php';
@@ -38,6 +39,7 @@
     use net\hdssolutions\php\dbo\DB;
     use net\hdssolutions\api\APIUtils;
     use com\example\project\webservice\api\v1_0\WebserviceAPI as WS_1_0;
+    use com\example\project\webservice\api\v2_0\WebserviceAPI as WS_2_0;
     use com\example\project\webservice\session\WebserviceSession;
     use com\example\project\webservice\api\logger\Logger;
 
@@ -62,6 +64,9 @@
     $requestedVersion = APIUtils::requestedVersion();
     switch ($requestedVersion) {
         case null: // execute last version by default (null)
+        case 2.0: WS_2_0::init();
+            break;
+
         case 1.0: WS_1_0::init();
             break;
 

@@ -2,7 +2,6 @@
     namespace com\example\project\webservice\api\v1_0\endpoints;
 
     require_once __DIR__.'/../../AbstractAPIEndpoint.class.php';
-    require_once __DIR__.'/../../connector/EndpointConnector.class.php';
 
     use net\hdssolutions\api\performance\Performance;
     use net\hdssolutions\api\APIUtils;
