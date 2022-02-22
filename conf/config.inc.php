@@ -43,7 +43,7 @@
     set_include_path(SERVICE_PATH);
 
     // version
-    define('VERSION', '0.0.1');
+    define('VERSION', '2.0.0');
 
     // conexion con BBDD
     define('DB_HOST', isset($_SERVER['DB_HOST']) ? $_SERVER['DB_HOST'] : 'localhost'); unset($_SERVER['DB_HOST']);
