@@ -31,6 +31,7 @@
 
     // cargamos los API class
     require_once 'src/com/example/project/webservice/api/v1_0/WebserviceAPI.class.php';
+    require_once 'src/com/example/project/webservice/api/v2_0/WebserviceAPI.class.php';
 
     // cargamos el Session handler
     require_once 'src/com/example/project/webservice/session/WebserviceSession.class.php';
