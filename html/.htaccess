@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^((v([0-9\.]+))\/(.*)?|(?:(?!_api_).)*)$ ./?_api_[request]=$0&_api_[version]=$2&_api_[endpoint]=$4 [QSA,L]
+</IfModule>
+
+<Limit GET POST PUT DELETE>
+    order deny,allow
+    allow from all
+</Limit>

@@ -1,0 +1,55 @@
+#!/bin/bash
+
+# obtenemos la ubicacion actual
+ORIG_PATH=$(pwd)
+
+BIN_PATH=$(dirname "$0")
+BIN_PATH=$(cd "$BIN_PATH" && pwd)
+
+# nos posicionamos en la raiz del proyecto
+cd $BIN_PATH/../
+
+# obtenemos el base path
+BASE_PATH=$(pwd)
+
+# seteamos los permisos a apache a las carpetas necesarias
+groups | grep www-data && chgrp www-data {conf/sqlite,tmp,logs}
+groups | grep apache && chgrp apache {conf/sqlite,tmp,logs}
+
+# inicializamos los submodules (instala la consola de la API)
+git submodule update --init --recursive
+
+# creamos el link para la configuracion de la consola
+cd html/console && ln -fs ../../conf/console.config && cd ../../
+
+# volvemos a la raiz
+cd $BASE_PATH
+
+# creamos el .htaccess default
+cat > .htaccess << EOF
+# local DB
+SetEnv DB_HOST "localhost"
+SetEnv DB_PORT "3306"
+SetEnv DB_USER ""
+SetEnv DB_PASS ""
+SetEnv DB_DDBB ""
+
+# external WS
+SetEnv WS_HOST ""
+SetEnv WS_HT_USER ""
+SetEnv WS_HT_PASS ""
+SetEnv WS_USER ""
+SetEnv WS_PASS ""
+
+# lock user after 5 failed login attempts
+SetEnv LOCK_FAILED "false"
+
+# force user password strength
+SetEnv PASSWORD_STRENGTH "false"
+
+# develop env flag
+SetEnv DEVELOP "true"
+EOF
+
+# volvemos al directorio original
+cd $ORIG_PATH
