@@ -45,3 +45,31 @@ Se puede ejecutar el script *data/init*, el mismo ejecuta los comandos anteriorm
 ```
 
 La creacion de la base de datos sigue siendo de forma manual, se debe ejecutar el SQL mencionado en la instalación manual.
+
+## Utilización y Características
+
+El WS tiene su propia consola de pruebas con los endpoints configurados.
+
+### Verb chaining
+Los endpoints están conectados entre si, es decir, se puede acceder a los datos relacionados directamente especificando el verbo + el campo a obtener.
+Por ej: para acceder a la nacionalidad de un cliente se puede ejecutar el siguiente request
+```
+GET/clients/{id}/nationality
+```
+
+Este request retornará la misma información que
+```
+GET/countries/{id}
+```
+El chaining de verbos es infinito, por ej:
+```
+GET auctions/{id}/batches/{id}/auction/batches/{id}/auction
+```
+
+### Filtros
+Los endpoints tienen filtros por attributos y campos relacionados.
+```
+GET/clients?fisrtname=Pedro
+GET/clients?nationality={country-id}
+GET/clients?status=new,active
+```
