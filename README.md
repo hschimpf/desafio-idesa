@@ -73,3 +73,6 @@ GET/clients?fisrtname=Pedro
 GET/clients?nationality={country-id}
 GET/clients?status=new,active
 ```
+
+### Extra
+Se conecto el endpoint /departamentos a la API publica de la web de IDESA. El WS parsea la información y la convierte a la estructura local del WS.
