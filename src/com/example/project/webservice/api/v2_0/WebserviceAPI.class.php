@@ -8,6 +8,7 @@
     require_once __DIR__.'/endpoints/ClientsEndpoint.class.php';
     require_once __DIR__.'/endpoints/AuctionsEndpoint.class.php';
     require_once __DIR__.'/endpoints/BatchesEndpoint.class.php';
+    require_once __DIR__.'/endpoints/DepartamentosEndpoint.class.php';
 
     use com\example\project\webservice\api\v1_0\WebserviceAPI as WebserviceAPI_v1_0;
 
@@ -18,6 +19,8 @@
     use com\example\project\webservice\api\v2_0\endpoints\AuctionsEndpoint;
     use com\example\project\webservice\api\v2_0\endpoints\BatchesEndpoint;
 
+    use com\example\project\webservice\api\v2_0\endpoints\DepartamentosEndpoint;
+
     class WebserviceAPI extends WebserviceAPI_v1_0 {
         public function login() { return new LoginEndpoint($this); }
         public function users() { return new UsersEndpoint($this); }
@@ -25,4 +28,6 @@
 
         public function auctions() { return new AuctionsEndpoint($this); }
         public function batches() { return new BatchesEndpoint($this); }
+
+        public function departamentos() { return new DepartamentosEndpoint($this); }
     }
