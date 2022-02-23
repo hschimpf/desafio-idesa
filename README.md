@@ -76,3 +76,8 @@ GET/clients?status=new,active
 
 ### Extra
 Se conecto el endpoint /departamentos a la API publica de la web de IDESA. El WS parsea la información y la convierte a la estructura local del WS.
+
+Para que el WS pueda conectarse al servicio de IDESA se debe agregar la ruta al WS externo en el `.htaccess`
+```
+SetEnv WS_HOST "https://www.idesa.com.py/api/public/"
+```
